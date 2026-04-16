@@ -18,11 +18,34 @@
 ## Установка и запуск в Google Colab
 
 1. Открыть ноутбук в Colab и включить GPU: `Среда выполнения` → `Сменить среду выполнения` → `T4 GPU`
-2. Установить зависимости:
+2. Выполнить ячейки последовательно
+
+## Устанока и запуск на локальной машине
+
+1. Клонировать репозиторий:
 ```bash
-!pip install torch==2.0.1 torchvision==0.15.2 segmentation-models-pytorch==0.3.3 albumentations tqdm matplotlib pandas opencv-python
+git clone https://github.com/potatogrill24/CyberSystems_1/edit/main
+cd CyberSystems_1
 ```
-3. Выполнить ячейки последовательно
+2. Подготовить виртуальное окружение. Для windows:
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+Для Linux:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+3. Установить зависимости:
+```bash
+pip install --upgrade pip
+pip uninstall -y segmentation-models-pytorch timm
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+pip install --upgrade timm segmentation-models-pytorch
+pip install albumentations opencv-python matplotlib pandas tqdm jupyter
+```
+4. Выполнить все ячейки последовательно
 
 ## Основные результаты
 
